@@ -1,4 +1,4 @@
-package com.calendar.calendar.Helper;
+package com.calendar.calendar.helper;
 
 import com.calendar.calendar.constant.ConfigConstant;
 import com.calendar.calendar.dto.AppointmentDto;

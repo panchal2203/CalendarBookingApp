@@ -1,6 +1,6 @@
 package com.calendar.calendar.service;
 
-import com.calendar.calendar.Helper.AppointmentHelper;
+import com.calendar.calendar.helper.AppointmentHelper;
 import com.calendar.calendar.constant.ConfigConstant;
 import com.calendar.calendar.dto.AppointmentDto;
 import com.calendar.calendar.dto.CalendarDto;
