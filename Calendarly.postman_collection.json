@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "b1a495dc-b7d3-4a1b-825f-bdb2e9806bb9",
+		"name": "Calendarly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26061126"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\": \"pradeep panchal\",\n    \"emailAddress\": \"panchal.1@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/users/"
+			},
+			"response": []
+		},
+		{
+			"name": "create calendar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"calendarOwnerId\": 1,\n    \"heading\": \"pradeep panchal\",\n    \"startTime\":\"2024-10-10T09:00:00\",\n    \"endTime\":\"2024-10-10T09:00:00\",\n    \"startSlot\":\"09:00:00\",\n    \"endSlot\":\"20:00:00\",\n    \"slotDurationInMin\":60,\n    \"timeZone\":\"Asia/Kolkata\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/calendar/"
+			},
+			"response": []
+		},
+		{
+			"name": "availableSlots",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/calendar/1/availableSlots?startTime=2024-10-10T09:00:00&endTime=2024-10-10T20:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"calendar",
+						"1",
+						"availableSlots"
+					],
+					"query": [
+						{
+							"key": "startTime",
+							"value": "2024-10-10T09:00:00"
+						},
+						{
+							"key": "endTime",
+							"value": "2024-10-10T20:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book appointment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"calendarId\": 1,\n    \"calendarOwnerId\": \"1\",\n    \"inviteeFullName\":\"ritik panchal\",\n    \"inviteeEmailAddress\":\"ritik@gmail.com\",\n    \"startTime\":\"2024-10-10T11:00:00\",\n    \"endTime\":\"2024-10-10T12:00:00\",\n    \"timeZone\":\"Asia/Kolkata\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/appointment"
+			},
+			"response": []
+		},
+		{
+			"name": "myappointments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"startTime\":\"2024-10-10T09:00:00\",\n    \"endTime\":\"2024-10-10T09:00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/appointment/2/appointments"
+			},
+			"response": []
+		},
+		{
+			"name": "get calendar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/calendar/1"
+			},
+			"response": []
+		}
+	]
+}
