@@ -1,15 +1,16 @@
-# Calendar Booking Application 
+# Calendar Booking Application
+This is a Calendar Booking Application built using Spring Boot and H2 in-memory database. The application allows users to create and manage calendars, schedule appointments, and invitees can book available slots.
 
-This is a project repo of a calendar booking application created using Spring-boot and H2 in-memory database.
+## Installation
+To set up and run the application locally:
 
+1. Clone or download the repository.
+2. Open the project in your preferred IDE.
+3. Run CalendarApplication.java to start the Spring Boot application.
+4. Postman API collection is provided in the postman_collection.json file for easier API testing.
+5. Access the H2 in-memory database console at http://localhost:8080/h2-console/login.jsp. The configuration can be found in the src/main/resources/application.properties file.
 
-# Installation
-
-1. Download and open this application on ide, and run CalendarApplication.java.
-2. I have included postman api collection at postman_collection.json.
-3. Login to http://localhost:8080/h2-console/login.jsp for database access, configuration provided in src/main/resources/application.properties.
-
-# Usage
+## Usage
 
 1. User can create account.
 2. User can create/schedule calendar.
@@ -23,7 +24,7 @@ This is a project repo of a calendar booking application created using Spring-bo
 10. Calendar owner can fetch calendar details with all its appointment.
 11. Calendar owner can update calendar.
 
-# API Documentation
+## API Documentation
 
 * GET /users/{emailAddress} -> get user details
 * POST /users -> create user
@@ -34,17 +35,15 @@ This is a project repo of a calendar booking application created using Spring-bo
 * GET /calendar/{calendarId} -> get calendar details with appointments
 * GET /{calendarId}/availableSlots -> get available slots
 
-* GET /appointment/{calendarOwnerId}/appointments -> get all upcoming appointment of user
+* GET /appointment/{calendarOwnerId}/appointments -> get all upcoming appointments of user
 * POST /appointment -> create appointment
 * PUT /appointment -> update appointment
 * DELETE /appointment -> delete appointment
 
-# Entities;
+## Entities
 
 * User
 * Calendar
 * Appointment
-
-
 
 
