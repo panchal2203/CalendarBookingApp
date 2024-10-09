@@ -32,9 +32,9 @@ public class AppointmentServiceImpl implements AppointmentService {
     public Long bookAppointment(List<String> errors, AppointmentDto appointmentDto) {
 
         Long calendarOwnerId = validateAppointmentDetails(errors, appointmentDto);
+        appointmentDto.setCalendarOwnerId(calendarOwnerId);
         if (errors.isEmpty()) {
             Appointment appointment = new Appointment();
-
             appointment.setCalendarId(appointmentDto.getCalendarId());
             appointment.setCalendarOwnerId(calendarOwnerId);
             appointment.setStartTime(appointmentDto.getStartTime());
@@ -47,7 +47,7 @@ public class AppointmentServiceImpl implements AppointmentService {
             appointmentRepository.save(appointment);
 
             communication.sendCommunication(appointmentDto.getInviteeEmailAddress(), appointment.getMeetingUrl());
-
+            appointmentDto.setMeetingUrl(appointment.getMeetingUrl());
             return appointment.getId();
 
         }
@@ -96,7 +96,9 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public List<AppointmentDto> fetchAppointments(Long calendarOwnerId) {
-        return appointmentRepository.findByCalendarOwnerId(calendarOwnerId).stream().map(AppointmentHelper::convertEntityToDtoForAppointment).toList();
+        return appointmentRepository.findByCalendarOwnerId(calendarOwnerId).stream()
+                .filter(appointment -> appointment.getStartTime().isAfter(LocalDateTime.now()))
+                .map(AppointmentHelper::convertEntityToDtoForAppointment).toList();
     }
 
 

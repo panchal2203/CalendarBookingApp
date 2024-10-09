@@ -7,6 +7,7 @@ import com.calendar.calendar.entity.Appointment;
 public class AppointmentHelper {
     public static AppointmentDto convertEntityToDtoForAppointment(Appointment appointment) {
         AppointmentDto appointmentDto = new AppointmentDto();
+        appointmentDto.setId(appointmentDto.getId());
         appointmentDto.setEndTime(appointment.getEndTime());
         appointmentDto.setStartTime(appointment.getStartTime());
         appointmentDto.setInviteeFullName(appointment.getInviteeFullName());
