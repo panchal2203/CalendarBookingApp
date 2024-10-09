@@ -7,7 +7,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "appointment_detail")
+@Table(name = "appointment_detail", indexes = {
+        @Index(name = "idx_user_Id", columnList = "calendarOwnerId")})
 public class Appointment {
 
     @Id

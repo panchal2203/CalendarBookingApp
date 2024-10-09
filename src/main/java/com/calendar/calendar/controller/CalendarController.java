@@ -4,7 +4,6 @@ import com.calendar.calendar.dto.ApiResponse;
 import com.calendar.calendar.dto.CalendarDto;
 import com.calendar.calendar.dto.TimeSlot;
 import com.calendar.calendar.service.CalendarService;
-import com.calendar.calendar.utility.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
